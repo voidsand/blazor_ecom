@@ -1,10 +1,9 @@
-﻿using System;
-namespace blazor_ecom.Shared
+﻿namespace blazor_ecom.Shared
 {
-	public class ServiceResponse<T>
-	{
-		public T? Data { get; set; }
-		public bool Success { get; set; } = true;
-		public string Message { get; set; } = string.Empty;
-	}
+    public class ServiceResponse<T>
+    {
+        public T? Data { get; set; }
+        public bool Success { get; set; } = true;
+        public string Message { get; set; } = string.Empty;
+    }
 }

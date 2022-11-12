@@ -1,6 +1,4 @@
-﻿using blazor_ecom.Shared;
-
-namespace blazor_ecom.Client.Services.CategoryService
+﻿namespace blazor_ecom.Client.Services.CategoryService
 {
     public class CategoryService : ICategoryService
     {
