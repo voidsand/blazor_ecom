@@ -1,0 +1,12 @@
+﻿@inject NavigationManager NavigationManager
+
+<button class="btn btn-outline-primary home-button me-2" @onclick="GoToHome">
+    DuDu Shop
+</button>
+
+@code {
+    private void GoToHome()
+    {
+        NavigationManager.NavigateTo("");
+    }
+}

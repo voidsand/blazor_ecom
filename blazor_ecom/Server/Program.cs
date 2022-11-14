@@ -1,6 +1,7 @@
 global using blazor_ecom.Server.Data;
 global using blazor_ecom.Shared;
 global using Microsoft.EntityFrameworkCore;
+using blazor_ecom.Server.Services.CartService;
 using blazor_ecom.Server.Services.CategoryService;
 using blazor_ecom.Server.Services.ProductService;
 
@@ -21,6 +22,7 @@ builder.Services.AddDbContextPool<DataContext>(options =>
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 var app = builder.Build();
 
@@ -44,7 +46,6 @@ app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 
 app.MapRazorPages();
 app.MapControllers();

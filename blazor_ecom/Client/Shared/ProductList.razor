@@ -28,6 +28,12 @@ else
             </li>
         }
     </ul>
+    for (var i = 1; i <= ProductService.PageCount; i++)
+    {
+        <a class="btn 
+            @(i == ProductService.CurrentPage ? "btn-primary" : "btn-outline-primary")
+            page-selection" href="/Search/@ProductService.LastSearchText/@i">@i</a>
+    }
 }
 
 @code {

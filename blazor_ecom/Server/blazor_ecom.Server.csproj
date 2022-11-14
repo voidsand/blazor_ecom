@@ -37,7 +37,6 @@
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Services\ProductService\" />
     <Folder Include="Services\CategoryService\" />
   </ItemGroup>

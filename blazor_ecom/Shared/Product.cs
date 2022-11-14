@@ -11,6 +11,7 @@ namespace blazor_ecom.Shared
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category? Category { get; set; }
+        public bool Featured { get; set; } = false;
         public List<ProductVariant> Variants { get; set; } = new List<ProductVariant>();
     }
 }

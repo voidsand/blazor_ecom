@@ -50,11 +50,24 @@
             return response;
         }
 
-        public async Task<ServiceResponse<List<Product>>> SearchProducts(string searchText)
+        public async Task<ServiceResponse<ProductSearchResult>> SearchProducts(string searchText, int page)
         {
-            var response = new ServiceResponse<List<Product>>
+            var pageResults = 3;
+            var searchResults = await GetProductsBySearchText(searchText);
+            var pageCount = Math.Ceiling(searchResults.Count / (double)pageResults);
+            var products = searchResults
+                .Skip((page - 1) * pageResults)
+                .Take(pageResults)
+                .ToList();
+
+            var response = new ServiceResponse<ProductSearchResult>
             {
-                Data = await GetProductsBySearchText(searchText)
+                Data = new ProductSearchResult
+                {
+                    Products = products,
+                    CurrentPage = page,
+                    PageCount = (int)pageCount,
+                }
             };
             return response;
         }
@@ -94,6 +107,18 @@
                 || p.Description.ToLower().Contains(searchText.ToLower()))
                 .Include(p => p.Variants)
                 .ToListAsync();
+        }
+
+        public async Task<ServiceResponse<List<Product>>> GetFeaturedProducts()
+        {
+            var response = new ServiceResponse<List<Product>>
+            {
+                Data = await _context.Products
+                    .Where(p => p.Featured)
+                    .Include(p => p.Variants)
+                    .ToListAsync()
+            };
+            return response;
         }
     }
 }

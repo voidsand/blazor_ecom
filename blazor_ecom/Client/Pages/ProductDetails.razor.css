@@ -14,6 +14,7 @@
 @media(max-width:1023.98px) {
     .media {
         flex-direction: column;
+        margin-bottom :50px;
     }
 
     .media-img {

@@ -37,7 +37,14 @@
 
     public void SearchProducts()
     {
-        NavigationManager.NavigateTo($"search/{searchText}");
+        if(searchText == string.Empty)
+        {
+            NavigationManager.NavigateTo("");
+        }
+        else
+        {
+            NavigationManager.NavigateTo($"Search/{searchText}/1");
+        }
         searchText = string.Empty;
         suggestions = new List<string>();
     }
